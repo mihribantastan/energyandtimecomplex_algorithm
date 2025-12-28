@@ -6,11 +6,13 @@ import math
 # Güç Katsayıları (Watt)
 POWER_VALS = {"merge": 15.2, "quick": 18.5, "strassen": 26.8}
 
+# Dosya yollarını belirlemek için
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EXE_PATH = os.path.join(BASE_DIR, "build", "program.exe")
 INPUTS_DIR = os.path.join(BASE_DIR, "inputs")
 RESULTS_CSV = os.path.join(BASE_DIR, "results", "result.csv")
 
+# Karmaşıklık tahmini fonksiyonu
 def estimate_complexity(n1, t1, n2, t2):
     """İki nokta arasındaki artıştan üstel karmaşıklığı (power) hesaplar."""
     if t1 <= 0 or t2 <= 0: return 0
@@ -32,6 +34,7 @@ def main():
     raw_data = []
     print("Ölçümler ve Karmaşıklık Analizi Başlıyor...")
 
+    # Testleri çalıştır ve verileri topla
     for algo, file_name, n, level in tests:
         in_path = os.path.join(INPUTS_DIR, file_name)
         process = subprocess.run([EXE_PATH, algo, in_path], capture_output=True, text=True)

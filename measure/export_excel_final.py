@@ -1,7 +1,7 @@
 import csv
 import os
 
-# Dosya yollarını belirle
+# Dosya yollarını belirlemek için
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV_INPUT = os.path.join(BASE_DIR, "results", "result.csv")
 EXCEL_OUTPUT = os.path.join(BASE_DIR, "results", "Algoritma_Analiz_Raporu.csv")
@@ -11,7 +11,7 @@ def convert_to_excel_compatible():
         print(f"Hata: {CSV_INPUT} dosyası bulunamadı! Önce deneyi çalıştırın.")
         return
 
-    # Mevcut veriyi oku
+    # Mevcut veriyi okumak için
     with open(CSV_INPUT, 'r', encoding='utf-8') as f_in:
         reader = csv.reader(f_in)
         data = list(reader)

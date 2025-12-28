@@ -1,5 +1,6 @@
 #include "../include/algorithms.h"
 
+// Matris toplama
 Matrix add(Matrix A, Matrix B, int n) {
     Matrix res(n, std::vector<int>(n));
     for (int i = 0; i < n; i++)
@@ -7,6 +8,7 @@ Matrix add(Matrix A, Matrix B, int n) {
     return res;
 }
 
+// Matris çıkarma
 Matrix sub(Matrix A, Matrix B, int n) {
     Matrix res(n, std::vector<int>(n));
     for (int i = 0; i < n; i++)
@@ -14,6 +16,7 @@ Matrix sub(Matrix A, Matrix B, int n) {
     return res;
 }
 
+// Strassen algoritması
 Matrix strassen(Matrix A, Matrix B, int n) {
     if (n <= 2) {
         Matrix C(n, std::vector<int>(n, 0));

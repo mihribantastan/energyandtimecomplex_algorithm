@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
+# Dosya yollarını belirlemek için
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV_PATH = os.path.join(BASE_DIR, "results", "result.csv")
 SAVE_DIR = os.path.join(BASE_DIR, "results")
@@ -16,7 +17,7 @@ def create_improved_plots():
         subset = df[df['Algorithm'] == algo]
         plt.plot(subset['N'], subset['Time(s)'], marker='o', label=algo)
     
-    plt.yscale('log')  # <--- İşte sihirli dokunuş burası!
+    plt.yscale('log')  # Logaritmik ölçek
     plt.title('Zaman Karmaşıklığı (Logaritmik Ölçek)', fontsize=14)
     plt.xlabel('Girdi Boyutu (n)')
     plt.ylabel('Saniye (Log Scale)')
@@ -27,8 +28,7 @@ def create_improved_plots():
 
     # --- ENERJİ GRAFİĞİ (AYRIK ANALİZ) ---
     plt.figure(figsize=(10, 6))
-    # Sadece sorting algoritmalarını ayrıca gösteren bir alt grafik veya 
-    # hepsini logaritmik bar chart yapalım
+    # Sadece sorting algoritmalarını ayrıca gösteren bir alt grafik veya renk kodlaması
     plt.yscale('log')
     high_level = df[df['Level'] == 'High']
     plt.bar(high_level['Algorithm'], high_level['Energy(J)'], color=['blue', 'orange', 'green'])

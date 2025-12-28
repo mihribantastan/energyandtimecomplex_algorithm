@@ -8,6 +8,7 @@ using namespace std;
 using namespace std::chrono;
 
 int main(int argc, char* argv[]) {
+    // Argüman kontrolü
     if (argc < 3) return 1;
     string algo = argv[1];
     string file_path = argv[2];
@@ -17,6 +18,7 @@ int main(int argc, char* argv[]) {
 
     high_resolution_clock::time_point t1, t2;
 
+    // Algoritma seçimi ve zaman ölçümü
     if (algo == "strassen") {
         Matrix A(n, vector<int>(n)), B(n, vector<int>(n));
         for(int i=0; i<n; i++) for(int j=0; j<n; j++) fin >> A[i][j];
@@ -33,6 +35,7 @@ int main(int argc, char* argv[]) {
         t2 = high_resolution_clock::now();
     }
 
+    // Zamanı mikro saniye cinsinden yazdır
     cout << duration_cast<microseconds>(t2 - t1).count() << endl;
     return 0;
 }

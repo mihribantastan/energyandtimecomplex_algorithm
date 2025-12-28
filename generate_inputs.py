@@ -1,6 +1,7 @@
 import random
 import os
 
+# Girdi dosyalarını oluşturma
 def create_inputs():
     if not os.path.exists("inputs"):
         os.makedirs("inputs")

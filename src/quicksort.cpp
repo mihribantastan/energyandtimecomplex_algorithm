@@ -1,6 +1,7 @@
 #include "../include/algorithms.h"
 #include <algorithm>
 
+// Partition işlemi
 int partition(std::vector<int>& arr, int low, int high) {
     int pivot = arr[high];
     int i = (low - 1);
@@ -15,6 +16,7 @@ int partition(std::vector<int>& arr, int low, int high) {
     return (i + 1);
 }
 
+// Quick Sort algoritması
 void quickSort(std::vector<int>& arr, int low, int high) {
     if (low < high) {
         int pi = partition(arr, low, high);

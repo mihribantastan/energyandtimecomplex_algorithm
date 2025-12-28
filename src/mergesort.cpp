@@ -1,5 +1,6 @@
 #include "../include/algorithms.h"
 
+// Birleştirme işlemi
 void merge(std::vector<int>& arr, int l, int m, int r) {
     int n1 = m - l + 1;
     int n2 = r - m;
@@ -15,6 +16,7 @@ void merge(std::vector<int>& arr, int l, int m, int r) {
     while (j < n2) arr[k++] = R[j++];
 }
 
+// Merge Sort algoritması
 void mergeSort(std::vector<int>& arr, int l, int r) {
     if (l < r) {
         int m = l + (r - l) / 2;
